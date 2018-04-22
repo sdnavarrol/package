@@ -14,8 +14,8 @@ include $(INCLUDE_DIR)/package.mk
 define Package/pwmSimulator
 	SECTION:=hdl_legrand
 	CATEGORY:=Audioporteiro
-	SUBMENU :=VoIP
 	URL:=http://pwmSimulator.sourceforge.net/
+	TITLE:=Doorlock PWM Driver 
 endef
 
 define Package/pwmSimulator/description
