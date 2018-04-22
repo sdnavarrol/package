@@ -11,17 +11,11 @@ PKG_MIRROR_HASH:=e7da08c4010d908f4eb32774b120d2cf9b0edf45df6ddf37177eb0dbff6af59
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/pwmSimulator/Default
+define Package/pwmSimulator
 	SECTION:=hdl_legrand
 	CATEGORY:=Audioporteiro
 	SUBMENU :=VoIP
 	URL:=http://pwmSimulator.sourceforge.net/
-endef
-
-define Package/pwmSimulator
-	$(call Package/pwmSimulator/Default)
-	TITLE:=Doorlock PWM driver	
-	MENU:=1
 endef
 
 define Package/pwmSimulator/description
