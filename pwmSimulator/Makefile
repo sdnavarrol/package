@@ -11,18 +11,19 @@ PKG_SOURCE_VERSION:=c57f1bd5ffa13792701ed21a9812caaf9fbb63ad
 PKG_MIRROR_HASH:=e7da08c4010d908f4eb32774b120d2cf9b0edf45df6ddf37177eb0dbff6af599
 include $(INCLUDE_DIR)/package.mk
 define Package/pwmSimulator
-	SECTION:=
-	CATEGORY:=
+	SECTION:=opt
 	TITLE:=Doorlock PWM driver
-#DESCRIPTION:=This variable is obsolete. use the Package/name/description define instead!
 	URL:=http://pwmSimulator.sourceforge.net/
 endef
+
 define Package/pwmSimulator/description
 	Doorlock PWM driver
 endef
+
 define Build/Configure
 	$(call Build/Configure/Default,--with-linux-headers=$(LINUX_DIR))
 endef
+
 define Package/pwmSimulator/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/driver $(1)/usr/sbin/
