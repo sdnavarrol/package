@@ -10,11 +10,17 @@ PKG_SOURCE_DATE:=2018-04-21
 PKG_SOURCE_VERSION:=c57f1bd5ffa13792701ed21a9812caaf9fbb63ad
 PKG_MIRROR_HASH:=e7da08c4010d908f4eb32774b120d2cf9b0edf45df6ddf37177eb0dbff6af599
 include $(INCLUDE_DIR)/package.mk
-define Package/pwmSimulator
+define Package/pwmSimulator/Default
 	SECTION:=hdl_legrand
 	CATEGORY:=Audioporteiro
-	TITLE:=Doorlock PWM driver
+	SUBMENU :=VoIP
 	URL:=http://pwmSimulator.sourceforge.net/
+endef
+
+define Package/pwmSimulator
+	$(call Package/pwmSimulator/Default)
+	TITLE:=Doorlock PWM driver	
+	MENU:=1
 endef
 
 define Package/pwmSimulator/description
