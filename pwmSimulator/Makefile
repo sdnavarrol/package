@@ -11,7 +11,7 @@ PKG_SOURCE_VERSION:=c57f1bd5ffa13792701ed21a9812caaf9fbb63ad
 PKG_MIRROR_HASH:=e7da08c4010d908f4eb32774b120d2cf9b0edf45df6ddf37177eb0dbff6af599
 include $(INCLUDE_DIR)/package.mk
 define Package/pwmSimulator
-	SECTION:=f21s_mtk
+	SECTION:=base
 	CATEGORY:=AudioPorteiro
 	TITLE:=Doorlock PWM driver
 #DESCRIPTION:=This variable is obsolete. use the Package/name/description define instead!
