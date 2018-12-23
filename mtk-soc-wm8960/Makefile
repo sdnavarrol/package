@@ -16,13 +16,12 @@ define Package/mtk-soc-wm8960
 	TITLE:=Alsa Driver MT7688 WM8960
 endef
 
-define Package/pwmSimulator/description
+define Package/mtk-soc-wm8960/description
 	Alsa Driver MT7688 WM8960
 endef
 
-define Package/pwmSimulator/install
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/driver $(1)/usr/sbin/
+define Package/mtk-soc-wm8960/install
+	
 endef
 
-$(eval $(call BuildPackage,pwmSimulator))
+$(eval $(call BuildPackage,mtk-soc-wm8960))
