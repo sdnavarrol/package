@@ -12,24 +12,30 @@ PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
+
+MTK_SOC_WM8960_AUTOLOAD:=\
+						mtk_ralink_gdma \
+						i2c_wm8960 \
+						snd-soc-mt76xx-i2s-ctl \
+						snd-soc-mt76xx-i2s \
+						snd-soc-mt76xx-pcm \
+						snd-soc-wm8960 \
+						snd-soc-mt76xx-machine
+
 define KernelPackage/mtk-soc-wm8960
 	SUBMENU:=Sound Support
 	DEFAULT:=y
 	TITLE:=ASoc MTK PCM/I2S machine WM8960 Glue Logic
 	FILES:=\
-		$(PKG_BUILD_DIR)/i2s_ctrl.o \
-		$(PKG_BUILD_DIR)/i2s_debug.o \
-		$(PKG_BUILD_DIR)/mt76xx_pcm.o \
-		$(PKG_BUILD_DIR)/mt76xx_i2s.o \
-		$(PKG_BUILD_DIR)/snd-soc-mt76xx-pcm.o \
-		$(PKG_BUILD_DIR)/snd-soc-mt76xx-i2s-ctl.o \
-		$(PKG_BUILD_DIR)/snd-soc-mt76xx-i2s.o \
-		$(PKG_BUILD_DIR)/mt76xx_machine.o \
-		$(PKG_BUILD_DIR)/wm8960.o \
-		$(PKG_BUILD_DIR)/i2c_wm8960.o \
-		$(PKG_BUILD_DIR)/mtk_ralink_gdma.o \
-		$(PKG_BUILD_DIR)/snd-soc-mt76xx-machine.o \
-		$(PKG_BUILD_DIR)/snd-soc-wm8960.o
+		$(PKG_BUILD_DIR)/mtk_ralink_gdma.ko \
+		$(PKG_BUILD_DIR)/i2c_wm8960.ko \
+		$(PKG_BUILD_DIR)/snd-soc-mt76xx-i2s-ctl.ko \
+		$(PKG_BUILD_DIR)/snd-soc-mt76xx-i2s.ko \
+		$(PKG_BUILD_DIR)/snd-soc-mt76xx-pcm.ko \
+		$(PKG_BUILD_DIR)/snd-soc-wm8960.ko \
+		$(PKG_BUILD_DIR)/snd-soc-mt76xx-machine.ko
+	AUTOLOAD:=$(call AutoLoad,50,$(MTK_SOC_WM8960_AUTOLOAD))
+	DEPENDS:=+kmod-i2c-core +kmod-sound-soc-core 
 endef
 
 define Package/mtk-soc-wm8960/description
