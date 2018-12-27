@@ -34,13 +34,6 @@ define KernelPackage/mtk-soc-wm8960
 		$(PKG_BUILD_DIR)/snd-soc-mt76xx-pcm.ko \
 		$(PKG_BUILD_DIR)/snd-soc-wm8960.ko \
 		$(PKG_BUILD_DIR)/snd-soc-mt76xx-machine.ko
-	KCONFIG:=\
-		CONFIG_MT7628 \
-		CONFIG_GDMA_EVERYBODY \
-		CONFIG_I2S_WM8960 \
-		CONFIG_I2S_MCLK_12P288MHZ \
-		CONFIG_GDMA_EVERYBODY \
-		CONFIG_SND_SOC_WM8960
 	AUTOLOAD:=$(call AutoLoad,50,$(MTK_SOC_WM8960_AUTOLOAD))
 	DEPENDS:=+kmod-i2c-core +kmod-sound-soc-core 
 endef
